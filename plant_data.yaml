@@ -1,0 +1,19 @@
+# 数据集根目录（斜杠改成正斜杠，结尾不要多余符号）
+path: C:/Users/1/plant_detection
+# 训练集、验证集 相对路径
+train: images/train
+val: images/val
+
+# 类别数量，必须和names个数严格一致
+nc: 9
+# 类别名，规范去掉多余空格、格式对齐
+names:
+  0: BaJiaoJinPan
+  1: DuJuan
+  2: GuangYuLan
+  3: GuiYe
+  4: HaiTong
+  5: MuJin
+  6: ShiNan
+  7: WuTong
+  8: YinXing
