@@ -29,42 +29,42 @@ pip install -r requirements.txt
  
  三、完整项目文件结构
 yolov5s-plant-recognition/
-├── 数据集目录
-│   ├── data/                # 数据集配置缓存
-│   ├── plant_9classes/      # 9类植物原始标注图片+labels标签
-│   ├── test/                # 测试图片集
-│   ├── val/                 # 验证图片集
-│   ├── data.zip             # 压缩打包数据集
-├── 核心训练推理脚本
-│   ├── train.py             # YOLOv5主训练入口（本项目核心）
-│   ├── train_plant_cls.py   # 植物分类专用训练脚本
-│   ├── val.py               # 验证集mAP、精确率、召回率评估
-│   ├── predict.py           # 基础单张图片预测
-│   ├── predict_plant.py     # 定制化叶片单张识别推理
-│   ├── predict_plant_batch.py # 批量文件夹图片预测
-│   ├── predict_plant_visual.py # 预测结果带框可视化保存
-├── 特征聚类实验模块
-│   ├── extract_90_features.py    # 提取90维叶片深度特征向量
-│   ├── split_features_by_class.py # 按9个类别拆分特征数据
-│   ├── plant_kmeans_clustering.py # K-Means无监督聚类算法
-│   ├── plant_kmeans_clustering.png # 聚类散点结果图
-│   ├── plant_cluster_90.png      # 90维特征聚类可视化图
-├── 修复&工具脚本
-│   ├── fix_label_ids.py     # 标签id修复，解决标注类别越界报错
-│   ├── export.py            # 模型导出（onnx/tensorrt等格式）
-│   ├── hubconf.py           # Torch Hub快速加载模型配置
-│   ├── test_pure.py         # 轻量化快速模型加载测试
-├── 界面与配置文件
-│   ├── main_ui.py           # PyQt5可视化交互GUI主程序
-│   ├── plant_data.yaml      # 9类数据集核心配置（类别名、路径、nc数量）
-│   ├── yolov8s-cls.pt       # 预训练权重文件
-│   ├── requirements.txt     # 环境依赖清单
-│   ├── pyproject.toml       # Python项目打包配置
-│   ├── tutorial.ipynb       # Jupyter分步调试教程笔记
-│   ├── README.md / README.zh-CN.md # 中英文项目说明
-└── 运行输出文件夹（自动生成）
-    ├── classify/    # 分类推理输出
-    ├── models/      # 训练保存best.pt/shturl.权重
+├─ 数据集目录
+│  ├─ data/                 # 数据集配置缓存
+│  ├─ plant_9classes/       # 9类植物原始标注图片+labels标签
+│  ├─ test/                  # 测试图片集
+│  ├─ val/                   # 验证图片集
+│  └─ data.zip               # 压缩打包数据集
+├─ 核心训练推理脚本
+│  ├─ train.py               # YOLOv5主训练入口（本项目核心）
+│  ├─ train_plant_cls.py     # 植物分类专用训练脚本
+│  ├─ val.py                 # 验证集mAP、精确率、召回率评估
+│  ├─ predict.py             # 基础单张图片预测
+│  ├─ predict_plant.py       # 定制化叶片单张识别推理
+│  ├─ predict_plant_batch.py # 批量文件夹图片预测
+│  └─ predict_plant_visual.py # 预测结果带框可视化保存
+├─ 特征聚类实验模块
+│  ├─ extract_90_features.py      # 提取90维叶片深度特征向量
+│  ├─ split_features_by_class.py  # 按9个类别拆分特征数据
+│  ├─ plant_kmeans_clustering.py  # K-Means无监督聚类算法
+│  ├─ plant_kmeans_clustering.png # 聚类散点结果图
+│  └─ plant_cluster_90.png        # 90维特征聚类可视化图
+├─ 修复&工具脚本
+│  ├─ fix_label_ids.py       # 标签id修复，解决标注类别越界报错
+│  ├─ export.py              # 模型导出（onnx/tensorrt等格式）
+│  ├─ hubconf.py             # Torch Hub快速加载模型配置
+│  └─ test_pure.py           # 轻量化快速模型加载测试
+├─ 界面与配置文件
+│  ├─ main_ui.py             # PyQt5可视化交互GUI主程序
+│  ├─ plant_data.yaml        # 9类数据集核心配置（类别名、路径、nc数量）
+│  ├─ yolov8s-cls.pt         # 预训练权重文件
+│  ├─ requirements.txt       # 环境依赖清单
+│  ├─ pyproject.toml        # Python项目打包配置
+│  ├─ tutorial.ipynb        # Jupyter分步调试教程笔记
+│  └─ README.md / README.zh-CN.md # 中英文项目说明
+└─ 运行输出文件夹（自动生成）
+   ├─ classify/    # 分类推理输出
+   └─ models/      # 训练保存best.pt/last.pt权重
 
 四、关键核心文件详解
 1. `train.py`（项目最核心，YOLOv5标准训练脚本）
