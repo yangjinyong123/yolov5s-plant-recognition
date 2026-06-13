@@ -66,7 +66,6 @@ yolov5s-plant-recognition/
     ├── classify/    # 分类推理输出
     ├── models/      # 训练保存best.pt/shturl.权重
 
-
 四、关键核心文件详解
 1. `train.py`（项目最核心，YOLOv5标准训练脚本）
 你提供的完整版训练脚本是整个检测模型的训练基座，完整逻辑：
