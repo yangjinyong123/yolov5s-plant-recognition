@@ -1,10 +1,12 @@
 yolov5s-plant-recognition 9类植物叶片识别项目 README.md
+
 一、项目概述
 本项目基于 YOLOv5s 构建9类校园植物叶片智能识别系统，融合多套实验方案：
 1. 监督检测识别：轻量化YOLOv5s主干搭配ECA注意力模块，完成9种植物叶片目标检测分类；测试集分类准确率91.11%，CPU环境可高效推理运行。
 2. 无监督聚类分析：提取叶片深度特征，PCA降维后使用K-Means完成无监督聚类，聚类匹配准确率87.78%，用于样本分布、特征可分性实验分析。
 3. 可视化交互系统：基于PyQt5搭建GUI图形界面，支持单张/批量图片上传、一键训练、实时预测、结果保存导出。
 数据集共9类标注叶片样本，整体工程完整覆盖 数据集处理→模型训练→验证评估→批量推理→聚类实验→桌面UI部署 全流程。
+
 
 二、环境依赖
 1. 一键安装依赖
@@ -63,6 +65,7 @@ yolov5s-plant-recognition/
 └── 运行输出文件夹（自动生成）
     ├── classify/    # 分类推理输出
     ├── models/      # 训练保存best.pt/shturl.权重
+
 
 四、关键核心文件详解
 1. `train.py`（项目最核心，YOLOv5标准训练脚本）
@@ -126,6 +129,7 @@ PyQt5图形操作界面，无需敲命令行：
 - `fix_label_ids.py`：标注标签修复工具，标签序号和yaml不匹配时报错专用修复；
 - `requirements.txt`：环境部署唯一依赖清单，克隆仓库后第一时间执行安装。
 
+
 五、分步完整运行教程
  步骤1：克隆仓库&安装环境
  bash
@@ -170,6 +174,7 @@ python extract_90_features.py
 python plant_kmeans_clustering.py
 运行完毕生成两张聚类PNG图表。
 
+
  六、模型性能指标
 1. 监督YOLOv5s-ECA检测分类
    - 类别总数：9类校园植物叶片
@@ -180,6 +185,7 @@ python plant_kmeans_clustering.py
    - 聚类匹配准确率：87.78%
    - 可视化散点图直观展示9类样本特征分布差异
 3. 优化点：原生YOLOv5s嵌入ECA注意力机制，小幅提升小叶片、遮挡叶片识别精度
+
 
 七、自定义修改指南
 1. 更换自己的植物数据集
@@ -198,6 +204,7 @@ python plant_kmeans_clustering.py
     直接编辑`main_ui.py`内Qt控件代码
 5. 调整聚类特征维度、聚类簇数
     修改`extract_90_features.py`与`plant_kmeans_clustering.py`内维度、n_cluster参数
+
 
 
 八、开源说明
