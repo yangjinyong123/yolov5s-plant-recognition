@@ -29,6 +29,7 @@ pip install -r requirements.txt
  
  三、完整项目文件结构
 yolov5s-plant-recognition/
+
 ├─ 数据集目录
 │  ├─ data/                 # 数据集配置缓存
 │  ├─ plant_9classes/       # 9类植物原始标注图片+labels标签
